@@ -3,7 +3,7 @@ Long division of polynomials made in Python by ZhuMH999
 
 To use:
 Modify the values in the SQUARE BRACKETS on line 50. DO NOT MODIFY ANYTHING ELSE.
-The format is as such: coeffient of highest power, coefficient of second highest power, ... constant
+The format is as such: coeffient of highest power, coefficient of second highest power, ... constant of the divident in the first square brackets, then same for the divisor in the second square brackets.
 If the power is non existant, put a 0. Include negative signs.
 
 The code can be run in online python IDEs.
