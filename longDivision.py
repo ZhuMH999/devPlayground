@@ -2,9 +2,7 @@
 Long division of polynomials made in Python by ZhuMH999
 
 To use:
-Modify the values in the SQUARE BRACKETS on line 50. DO NOT MODIFY ANYTHING ELSE.
-The format is as such: coeffient of highest power, coefficient of second highest power, ... constant of the divident in the first square brackets, then same for the divisor in the second square brackets.
-If the power is non existant, put a 0. Include negative signs.
+Run the code
 
 The code can be run in online python IDEs.
 """
@@ -26,6 +24,9 @@ def polynomialDivision(divident, divisor):
 
         remainder.pop(0)
 
+    if len(remainder) == 0:
+        remainder.append(0)
+
     remainder = [str(re) for re in remainder]
 
     formatted_quotient = format_equation(quotient)
@@ -46,7 +47,24 @@ def format_equation(equation):
             formatted[f] = '+ ' + formatted[f]
     return formatted
 
+def get_polynomials(d):
+    while True:
+        degree = input(f'Please enter the degree of the {d}. > ')
+        if degree.isdigit():
+            degree = int(degree)
+            break
+        print('Sorry. That was not a number. Please input again.')
 
-q, r = polynomialDivision([2, 0, -1, 1, 0, -4], [1, -1, -2])
+    e = []
+    for i in range(degree + 1):
+        while True:
+            answer = input(f'Please enter the coefficent of x{str(degree - i).translate(SUP)}. > ')
+            if answer.isdigit():
+                break
+            print('Sorry. That was not a number. Please input again.')
+        e.append(int(answer))
+    return e
+
+q, r = polynomialDivision(get_polynomials('divisor'), get_polynomials('divident'))
 print(f'Quotient = {" ".join(q)}')
 print(f'Remainder = {" ".join(r)}')
