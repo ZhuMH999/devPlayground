@@ -63,4 +63,4 @@ def cleanup_polynomial(string, check_case=False):
 numerator, temp = get_coeff_of_polynomial(input('Please enter numerator in the form ax^2+bx+c, with no spaces. >'))
 denumerator, temp = get_coeff_of_polynomial(input('Please enter denominator in the form (ax+b)(cx+d)^2 with no spaces >'), True)
 
-print(partial_fractions(numerator[0], denumerator[1], denumerator[0]))
+print(partial_fractions(numerator[0], denumerator[0], denumerator[1]))
