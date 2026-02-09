@@ -47,7 +47,7 @@ def get_number_input(inpt):
         try:
             number = int(input(inpt))
             tested = True
-        except TypeError:
+        except ValueError:
             print('That was not a number. Please try again. ')
     return number
 
@@ -78,10 +78,12 @@ def get_tangent_and_normal(eqn, x):
 
     print(f'The tangent is y = {gradient}x + {c}')
 
-    gradientnormal = -1 / gradient
-    cnormal = gradientnormal * (-x_coor) + y_coor
-
-    print(f'The normal is y = {gradientnormal}x + {cnormal}.')
+    if gradient == 0:
+        print(f'The normal is x = {x_coor}')
+    else:
+        gradient_normal = -1 / gradient
+        c_normal = y_coor - gradient_normal * x_coor
+        print(f'The normal is y = {gradient_normal}x + {c_normal}.')
 
 
 print('Enter polynomial to differentiate in the form ax^2+bx+c.\nFor negative powers, please express it in the form x^n3, where n substitutes the negative sign.')
